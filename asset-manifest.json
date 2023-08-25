@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/giangtuyet-admin/static/css/main.d8a95913.css",
-    "main.js": "/giangtuyet-admin/static/js/main.c67018c7.js",
+    "main.js": "/giangtuyet-admin/static/js/main.bbd72e4a.js",
     "static/js/787.293ab18d.chunk.js": "/giangtuyet-admin/static/js/787.293ab18d.chunk.js",
     "index.html": "/giangtuyet-admin/index.html",
     "main.d8a95913.css.map": "/giangtuyet-admin/static/css/main.d8a95913.css.map",
-    "main.c67018c7.js.map": "/giangtuyet-admin/static/js/main.c67018c7.js.map",
+    "main.bbd72e4a.js.map": "/giangtuyet-admin/static/js/main.bbd72e4a.js.map",
     "787.293ab18d.chunk.js.map": "/giangtuyet-admin/static/js/787.293ab18d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d8a95913.css",
-    "static/js/main.c67018c7.js"
+    "static/js/main.bbd72e4a.js"
   ]
 }
