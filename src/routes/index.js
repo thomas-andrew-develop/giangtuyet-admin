@@ -1,13 +1,6 @@
-import Dashboard from '../pages/Dashboard'
-import Blogs from '../pages/Blogs'
-import Login from '../pages/Login'
+import GlobalRoutes from './globalRouter';
+import BlogRouter from './blogRouter';
 
-export const publicRoutes = [
-  {path: '/', component: Dashboard},
-  {path: '/blogs', component: Blogs},
-  {path: '/login', component: Login, layout: null}
-]
+const Router = { GlobalRoutes,  BlogRouter }
 
-export const privateRoutes = [
-
-]
+export default Router;

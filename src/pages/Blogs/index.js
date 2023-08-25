@@ -1,8 +1,14 @@
 import React from 'react'
-
+import {Outlet} from 'react-router-dom';
+import BlogRoute from '../../routes/blogRouter';
+import ListBlogs from './ListBlogs';
 function Blogs() {
   return (
-    <div>Blogs</div>
+    <>
+      <ListBlogs />
+      <BlogRoute />
+      <Outlet />
+    </>
   )
 }
 

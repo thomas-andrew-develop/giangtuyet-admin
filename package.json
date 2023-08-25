@@ -2,7 +2,8 @@
   "name": "giangtuyet-admin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://thomas-andrew-develop.github.io/giangtuyet-admin",
+  "homepage": "https://thomas-andrew-develop.github.io/giangtuyet-admin-reactjs",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -17,9 +18,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "rm -rf docs && mv build docs",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "sass": "^1.66.1"
   }
 }

@@ -4,13 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './component/GlobalStyles';
-
+import {BrowserRouter} from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalStyles>
-      <App />
-    </GlobalStyles>
+    <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
+      <GlobalStyles>
+        <App />
+      </GlobalStyles>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
