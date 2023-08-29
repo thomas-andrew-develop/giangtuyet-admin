@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/giangtuyet-admin-reactjs/static/css/main.87be9c7a.css",
-    "main.js": "/giangtuyet-admin-reactjs/static/js/main.626a08d6.js",
-    "static/js/787.293ab18d.chunk.js": "/giangtuyet-admin-reactjs/static/js/787.293ab18d.chunk.js",
+    "main.css": "/giangtuyet-admin-reactjs/static/css/main.2ca6df2b.css",
+    "main.js": "/giangtuyet-admin-reactjs/static/js/main.0227adf6.js",
+    "static/js/787.2366de56.chunk.js": "/giangtuyet-admin-reactjs/static/js/787.2366de56.chunk.js",
     "index.html": "/giangtuyet-admin-reactjs/index.html",
-    "main.87be9c7a.css.map": "/giangtuyet-admin-reactjs/static/css/main.87be9c7a.css.map",
-    "main.626a08d6.js.map": "/giangtuyet-admin-reactjs/static/js/main.626a08d6.js.map",
-    "787.293ab18d.chunk.js.map": "/giangtuyet-admin-reactjs/static/js/787.293ab18d.chunk.js.map"
+    "main.2ca6df2b.css.map": "/giangtuyet-admin-reactjs/static/css/main.2ca6df2b.css.map",
+    "main.0227adf6.js.map": "/giangtuyet-admin-reactjs/static/js/main.0227adf6.js.map",
+    "787.2366de56.chunk.js.map": "/giangtuyet-admin-reactjs/static/js/787.2366de56.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.87be9c7a.css",
-    "static/js/main.626a08d6.js"
+    "static/css/main.2ca6df2b.css",
+    "static/js/main.0227adf6.js"
   ]
 }
