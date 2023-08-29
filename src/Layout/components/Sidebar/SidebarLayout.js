@@ -1,45 +1,44 @@
-import React from 'react'
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { menus } from './menu';
 
 import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
-function getItem(label, key, icon, children) {
-  return {
-    key,
-    icon,
-    children,
-    label,
+
+function Sidebar({ collapsed }) {
+  const [selectMenu, setSelectMenu] = useState(['1']);
+
+  const navigate = useNavigate();
+
+  const loadLabel = (items, key) => {
+    return items.map((item) => {
+      if (item.children) {
+        return loadLabel(item.children, key);
+      } else {
+        setSelectMenu(key);
+        return navigate(key, { state: item.label });
+      }
+    });
   };
-}
-// const items = [
-//   getItem('Option 1', '1', <PieChartOutlined />),
-//   getItem('Option 2', '2', <DesktopOutlined />),
-//   getItem('User', 'sub1', <UserOutlined />, [
-//     getItem('Tom', '3'),
-//     getItem('Bill', '4'),
-//     getItem('Alex', '5'),
-//   ]),
-//   getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-//   getItem('Files', '9', <FileOutlined />),
-// ];
 
-const items = menus;
-
-function Sidebar({collapsed}) {
+  const handleClickMenu = (key) => {
+    if (key === 'signout') {
+      return navigate('/login');
+    }
+    return loadLabel(menus, key);
+  };
   return (
     <Sider collapsible collapsed={collapsed}>
       <div className="demo-logo-vertical" />
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+      <Menu
+        theme="dark"
+        defaultSelectedKeys={selectMenu}
+        mode="inline"
+        items={menus}
+        onClick={({ key }) => handleClickMenu(key)}
+      />
     </Sider>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;

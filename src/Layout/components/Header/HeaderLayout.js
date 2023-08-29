@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { Layout } from 'antd';
 const { Header } = Layout;
 
-function HeaderLayout({colorBgContainer}) {
+function HeaderLayout({ colorBgContainer }) {
   return (
     <Header
       style={{
@@ -10,7 +10,7 @@ function HeaderLayout({colorBgContainer}) {
         background: colorBgContainer,
       }}
     />
-  )
+  );
 }
 
-export default HeaderLayout
+export default HeaderLayout;

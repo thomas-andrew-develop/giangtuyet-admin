@@ -1,24 +1,27 @@
-import AddBlog from '../pages/Blogs/AddBlog';
-import BlogDetail from '../pages/Blogs/BlogDetail';
+import React from 'react';
+import BlogAdd from '../pages/Blogs/BlogAdd';
+import BlogsList from '../pages/Blogs/BlogsList';
 import CategoriesBlog from '../pages/Blogs/CategoriesBlog';
-import {Routes, Route} from 'react-router-dom';
+import CategoryBlogAdd from '../pages/Blogs/CategoriesBlog/CategoryBlogAdd';
+import { Routes, Route } from 'react-router-dom';
 
-function BlogRoutes() {
+function blogRouter() {
   const blogsRoutes = [
-    {path: ':id', component: BlogDetail},
-    {path: 'add', component: AddBlog},
-    {path: 'categories', component: CategoriesBlog},
-  ]
+    { path: ':id', component: BlogAdd },
+    { path: 'add', component: BlogAdd },
+    { path: 'categories', component: CategoriesBlog },
+    { path: 'categories/add', component: CategoryBlogAdd },
+    { path: 'categories/:id', component: CategoryBlogAdd },
+  ];
   return (
     <Routes>
-      {
-        blogsRoutes.map((route, index) => {
-          const Page = route.component;
-          return <Route key={index} path={route.path} element={<Page />} />
-        })
-      }
+      <Route index element={<BlogsList />} />
+      {blogsRoutes.map((route, index) => {
+        const Page = route.component;
+        return <Route key={index} path={route.path} element={<Page />} />;
+      })}
     </Routes>
-  )
+  );
 }
 
-export default BlogRoutes;
+export default blogRouter;

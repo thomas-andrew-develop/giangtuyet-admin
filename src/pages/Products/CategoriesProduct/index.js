@@ -1,9 +1,11 @@
-import React from 'react'
-
-function Categories() {
+import React from 'react';
+import CategoriesProductList from './CategoriesProductList';
+function CategoriesProduct() {
   return (
-    <div>Categories</div>
-  )
+    <>
+      <CategoriesProductList />
+    </>
+  );
 }
 
-export default Categories
+export default CategoriesProduct;

@@ -1,6 +1,3 @@
-import GlobalRoutes from './globalRouter';
-import BlogRouter from './blogRouter';
-
-const Router = { GlobalRoutes,  BlogRouter }
-
-export default Router;
+export { default as GlobalRouter } from './globalRouter';
+export { default as BlogRouter } from './blogRouter';
+export { default as ProductRouter } from './productRouter';

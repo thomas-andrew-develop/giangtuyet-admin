@@ -1,15 +1,11 @@
-import React from 'react'
-import {Outlet} from 'react-router-dom';
-import BlogRoute from '../../routes/blogRouter';
-import ListBlogs from './ListBlogs';
+import React from 'react';
+import { BlogRouter } from '../../routes';
 function Blogs() {
   return (
     <>
-      <ListBlogs />
-      <BlogRoute />
-      <Outlet />
+      <BlogRouter />
     </>
-  )
+  );
 }
 
-export default Blogs
+export default Blogs;

@@ -1,9 +1,15 @@
-import React from 'react'
-
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import { ProductRouter } from '../../routes';
+import ProductsList from './ProductsList';
 function Products() {
   return (
-    <div>Products</div>
-  )
+    <>
+      <ProductsList />
+      <ProductRouter />
+      <Outlet />
+    </>
+  );
 }
 
-export default Products
+export default Products;

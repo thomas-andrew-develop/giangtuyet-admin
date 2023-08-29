@@ -1,9 +1,11 @@
-import React from 'react'
-
-function Categories() {
+import React from 'react';
+import CategoriesBlogList from './CategoriesBlogList';
+function CategoriesBlog() {
   return (
-    <div>Categories</div>
-  )
+    <>
+      <CategoriesBlogList />
+    </>
+  );
 }
 
-export default Categories
+export default CategoriesBlog;
