@@ -1,15 +1,46 @@
-import React from 'react';
-import { Row, Col, Button, Checkbox, Form, Input, Select } from 'antd';
+import React, { useState, useEffect } from 'react';
+import slugify from 'slugify';
+import { Row, Col, Button, Checkbox, Form, Input, Select, Space } from 'antd';
 
 const { TextArea } = Input;
 const { Option } = Select;
 
 function BlogAdd() {
+  const [disableSlug, setDisableSlug] = useState(true);
+  const [slugStatus, setSlugStatus] = useState('');
   const [form] = Form.useForm();
   const onFinish = (values) => {
     console.log('Success:', values);
     form.resetFields();
   };
+
+  const handleChange = (e) => {
+    form.setFieldsValue({
+      slug: slugify(e.target.value),
+    });
+  };
+
+  const newSlug = Form.useWatch('slug', form);
+  const oldSlug = Form.useWatch('title', form);
+  useEffect(() => {
+    switch (slugStatus) {
+      case 'edit':
+        setDisableSlug(false);
+        break;
+      case 'complete':
+        form.setFieldsValue({
+          slug: slugify(newSlug),
+        });
+        setDisableSlug(true);
+        break;
+      case 'cancel':
+        form.setFieldsValue({
+          slug: slugify(oldSlug),
+        });
+        setDisableSlug(true);
+        break;
+    }
+  }, [slugStatus]);
 
   return (
     <Form
@@ -36,9 +67,11 @@ function BlogAdd() {
                 message: 'Please input your title!',
               },
             ]}
+            onChange={handleChange}
           >
-            <Input />
+            <Input size="large" />
           </Form.Item>
+
           <Form.Item
             className="form-control"
             label="Slug"
@@ -50,8 +83,24 @@ function BlogAdd() {
               },
             ]}
           >
-            <Input />
+            <Input disabled={disableSlug} size="large" />
           </Form.Item>
+          <Space size={16}>
+            {disableSlug ? (
+              <Button type="primary" className="mb-20" size="large" onClick={() => setSlugStatus('edit')}>
+                Edit Slug
+              </Button>
+            ) : (
+              <>
+                <Button className="mb-20" size="large" onClick={() => setSlugStatus('complete')}>
+                  Complete Edit Slug
+                </Button>
+                <Button type="text" className="mb-20" size="large" onClick={() => setSlugStatus('cancel')}>
+                  Cancel
+                </Button>
+              </>
+            )}
+          </Space>
 
           <Form.Item
             className="form-control"
@@ -83,20 +132,22 @@ function BlogAdd() {
         </Col>
         <Col className="gutter-row" span={10}>
           <Form.Item name="status" label="Status" className="form-control">
-            <Select>
+            <Select size="large">
               <Option value="Public">Public</Option>
               <Option value="Pending">Pending</Option>
             </Select>
           </Form.Item>
 
           <Form.Item name="categories" label="Categories" className="form-control">
-            <Checkbox.Group>
-              <Checkbox value="A" style={{ lineHeight: '32px' }}>
-                F
-              </Checkbox>
-              <Checkbox value="B" style={{ lineHeight: '32px' }}>
-                F
-              </Checkbox>
+            <Checkbox.Group size="large">
+              <Space direction="vertical">
+                <Checkbox value="A" style={{ lineHeight: '32px' }}>
+                  F
+                </Checkbox>
+                <Checkbox value="B" style={{ lineHeight: '32px' }}>
+                  F
+                </Checkbox>
+              </Space>
             </Checkbox.Group>
           </Form.Item>
 
@@ -111,7 +162,7 @@ function BlogAdd() {
               },
             ]}
           >
-            <Input />
+            <Input size="large" />
           </Form.Item>
           <Form.Item className="form-control" label="Sticky" name="sticky" valuePropName="checked">
             <Checkbox>Sticky</Checkbox>
