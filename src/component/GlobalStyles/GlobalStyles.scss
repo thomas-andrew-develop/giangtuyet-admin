@@ -51,7 +51,7 @@ textarea {
   -moz-appearance: none;
   appearance: none;
   outline: none;
-  resize: none!important;
+  resize: none !important;
 }
 
 @for $i from 0 through 100 {
@@ -135,17 +135,17 @@ textarea {
 }
 
 $backgrounds: (
-	"white": white,
+  'white': white,
 );
 
 @each $background, $i in $backgrounds {
   .background-#{$background} {
-    background: $i;	
+    background: $i;
   }
 }
 
-.form-control .ant-form-item-label{
-  label{
+.form-control .ant-form-item-label {
+  label {
     font-weight: 700;
   }
 }
